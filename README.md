@@ -4,7 +4,7 @@ This is the code for the [SemEval 2023 shared task: Detecting the categroy, the 
 
 * Xiaoman Xu
 * Yimin Wang
-* Ye Jiang
+* [Ye Jiang](https://ye-jiang.com)
 
 All are members of the NLP group of the Qingdao University of Science and Technology (QUST).
 
@@ -20,4 +20,10 @@ The system created with this was the 2nd place in Italian and Spanish on subtask
 * scikit-learn	1.1.2
 * tqdm	4.64.0
 
-# Experimental Results
+# To run
+
+1. `Utils` folder contains data preprocessing scripts for each subtask separately. e.g., `train_data_task1.py`is used for the training and dev data in the subtask-1. (**Note that the training and dev data are merged as we implement 10-fold cross validation.**)
+
+2. `train_pred` folder contains train and predict scripts for each subtask separately. e.g., `t1_kfold.py` will train the preprocessed data from above step through a 10-fold cross validation setup. We also applies early stopping and only save the best model checkpoint from the 10-fold.
+
+3. after training, the prediction scripts is combining the top 3 best checkpoints to make a average ensemble for the test data. e.g., 't1_pred.py' will load the top 3 best checkpoint (the selection of the top 3 checkpoints are made manually by checking the training log once the training phase is done), and generate the prediction `.txt` file for each language in each subtask.

@@ -12,4 +12,12 @@ The system created with this was the 2nd place in Italian and Spanish on subtask
 
 # Preparation / Requirements
 
+* python 3.9 or above
+* pytorch 1.13.0.dev20220730	
+* transformers	4.21.0
+* datasets	2.4.0
+* pandas	1.4.3
+* scikit-learn	1.1.2
+* tqdm	4.64.0
+
 # Experimental Results

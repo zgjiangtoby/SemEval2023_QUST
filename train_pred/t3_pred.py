@@ -46,7 +46,7 @@ def compute_prob(test_preds):
 
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
-model_list = glob.glob("./t3_best_models/t3_fold_*.model")
+model_list = glob.glob("../checkpoints/t3/best_models/t3_fold_*.model")
 
 # lan = ["en", "fr", "ge", "it", "po", "ru", "es", "gr", "ka"]
 lan = ["es", "gr", "ka"]
@@ -139,7 +139,7 @@ for l in lan:
                   "Slogans", "Appeal_to_Popularity", "Repetition", "Guilt_by_Association", "Doubt", "Conversation_Killer", "Appeal_to_Authority",
                   "Straw_Man", "Appeal_to_Time", "Questioning_the_Reputation"]
 
-    with open("../test/subtask-3/t3_pred_{}.txt".format(l), 'w') as outf:
+    with open("../predictions/subtask-3/t3_pred_{}.txt".format(l), 'w') as outf:
         for i in range(len(all_id1)):
             outf.write(str(all_id1[i]))
             outf.write("\t")

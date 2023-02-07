@@ -48,7 +48,7 @@ def compute_prob(test_preds):
 
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
-model_list = glob.glob("../results/best_models/t1_finetune_10fold*.model")
+model_list = glob.glob("../checkpoints/t1/best_models/t1_fold_*.model")
 
 lan = ["en", "fr", "ge", "it", "po", "ru", "es", "gr", "ka"]
 
@@ -56,7 +56,7 @@ tokenizer = XLMRobertaTokenizer.from_pretrained("xlm-roberta-base")
 #
 for l in lan:
     print("Predicting {}".format(l))
-    with open("../test/subtask-1/test-articles-subtask-1-{}.json".format(l), 'r') as inf2:
+    with open("../test-articles-subtask-1-{}.json".format(l), 'r') as inf2:
         pred_data = json.load(inf2)
         # for idx, t in enumerate(pred_data):
         #     pred_data[idx]['text'] = clean_text(t['text'])
@@ -120,7 +120,7 @@ for l in lan:
     print(ensemble)
 
 
-    with open("../test/subtask-1/t1_pred_{}.txt".format(l), 'w') as outf:
+    with open("../predictions/subtask-1/t1_pred_{}.txt".format(l), 'w') as outf:
         for i in range(len(all_id1)):
             outf.write(str(all_id1[i]))
             outf.write("\t")

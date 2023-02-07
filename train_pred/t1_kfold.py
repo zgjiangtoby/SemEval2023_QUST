@@ -37,7 +37,7 @@ def converter(label):
 
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
-df = pd.read_json("../train/final/train-dev-articles-subtask-1.json", encoding='ISO-8859-1')
+df = pd.read_json("../train-dev-articles-subtask-1.json", encoding='ISO-8859-1')
 
 n_fold = 10
 K_fold = StratifiedKFold(n_splits=n_fold, shuffle=True, random_state=2025)
@@ -142,7 +142,7 @@ for fold, (train_index, test_index) in enumerate(K_fold.split(df['cleaned_text']
             saved_model = model
             saved_epoch = epoch
             print("saving model with val_f1 {} at Epoch {}".format(val_F1, saved_epoch + 1))
-            saved_model.save_pretrained("./checkpoints/t1/t1_fold_{}.model".format(fold+1))
+            saved_model.save_pretrained("../checkpoints/t1/t1_fold_{}.model".format(fold+1))
 
         if epoch - saved_epoch >= tolerant:
             model.cpu()

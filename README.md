@@ -6,7 +6,7 @@ This is the code for the [SemEval 2023 shared task: Detecting the categroy, the 
 
 He is an Assistant Professor of the Qingdao University of Science and Technology (QUST).
 
-The system created with this was the 2nd place in Italian and Spanish on subtask 1, see the public [leaderboard](https://propaganda.math.unipd.it/semeval2023task3/leaderboard.php)
+The system created with this was the 2nd best system in Italian and Spanish on subtask 1, see the public [leaderboard](https://propaganda.math.unipd.it/semeval2023task3/leaderboard.php)
 
 # Preparation / Requirements
 
